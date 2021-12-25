@@ -1,5 +1,5 @@
 #!/bin/bash
-# https://github.com/Weilbyte/PVEDiscordDark
+# https://github.com/TechyGuy17/PVEDarkMode
 
 umask 022
 
@@ -15,7 +15,7 @@ CHECKMARK='\033[0;32m\xE2\x9C\x94\033[0m'
 TEMPLATE_FILE="/usr/share/pve-manager/index.html.tpl"
 SCRIPTPATH="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)/$(basename "${BASH_SOURCE[0]}")"
 
-REPO=${REPO:-"Weilbyte/PVEDiscordDark"}
+REPO=${REPO:-"TechyGuy17/PVEDarkMode"}
 DEFAULT_TAG="master"
 TAG=${TAG:-$DEFAULT_TAG}
 BASE_URL="https://raw.githubusercontent.com/$REPO/$TAG"
@@ -100,7 +100,7 @@ function usage {
         echo -e "  0                    OK"
         echo -e "  1                    Failure"
         echo -e "  2                    Already installed, OR not installed (when using install/uninstall commands)\n"
-        echo -e "Report issues at: <https://github.com/Weilbyte/PVEDiscordDark/issues>"
+        echo -e "Report issues at: <https://github.com/TechyGuy17/PVEDarkMode/issues>"
     fi
 }
 
@@ -151,7 +151,7 @@ function install {
         ITER=0
         for image in "${IMAGELISTARR[@]}"
         do
-                curl -s $BASE_URL/PVEDiscordDark/images/$image > /usr/share/pve-manager/images/$image
+                curl -s $BASE_URL/PVEDarkMode/images/$image > /usr/share/pve-manager/images/$image
                 ((ITER++))
                 if [ "$_silent" = false ]; then echo -e "\e[1A\e[KDownloading images ($ITER/${#IMAGELISTARR[@]})"; fi
         done
